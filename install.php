@@ -15,7 +15,7 @@ mysql_select_db($db_name)
 or die ("Could not select database because ".mysql_error());
 
 // create table on database
-$create = "create table $db_table (
+$create = "create table if not exists $db_table (
 id smallint(5) NOT NULL auto_increment,
 username varchar(30) NOT NULL,
 password varchar(32) NOT NULL,
@@ -23,9 +23,26 @@ email varchar(200) NOT NULL,
 admin boolean,
 PRIMARY KEY (id),
 UNIQUE KEY username (username)
+);
+";
+
+$todo = "create table if not exists todo (
+id smallint(5) NOT NULL auto_increment,
+username varchar(30) NOT NULL,
+title varchar(30) NOT NULL,
+due datetime,
+PRIMARY KEY (id)
 );";
 
-mysql_query($create)
-or die ("Could not create tables because ".mysql_error());
-echo "Complete.";
+
+
+
+
+$build =  array($create, $todo );
+foreach ($build as &$table) {
+    mysql_query($table)
+    or die ("Could not create tables because ".mysql_error());
+    echo "Complete.";
+}
+
 ?>
