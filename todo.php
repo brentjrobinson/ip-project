@@ -30,8 +30,8 @@
                     <a class="navbar-brand" href="#">TeacherConnect</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="todo.html">To-Do</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li class="active"><a href="todo.html">To-Do</a></li>
                     <li><a href="#">Wishlist</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
