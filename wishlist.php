@@ -31,8 +31,8 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="todo.php">To-Do</a></li>
-                    <li><a href="wishlist.php">Wishlist</a></li>
+                    <li><a href="todo.php">To-Do</a></li>
+                    <li class="active"><a href="wishlist.php">Wishlist</a></li>
                     <li><a href="messageBoard.php">Message Board</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -44,19 +44,14 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Todo list</div>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="student-only" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" color="blue">
-                        Select teacher
-                     </button>
-                     </div>
+                    <div class="panel-heading">Wish List</div>
                     <div class="panel-body">
                         <div id="teacher-only">
                             <div  id= "teacher-form"  class="col-md-4">
                                 <div class="panel panel-primary">
-                                    <div class="panel-heading">Add to Todo</div>
+                                    <div class="panel-heading">Add to Wishlist Item</div>
                                     <div class="panel-body">
-                                        <form action="todo_insert.php" method="post">
+                                        <form action="wishlist_insert.php" method="post">
 
                                             <div class="form-group">
                                                 <label for="title">Item</label>
@@ -97,7 +92,7 @@
                                 			// select the database
                                 			mysql_select_db($db_name)
                                 			or die ("Could not select database because ".mysql_error());
-                                            $results = mysql_query("select title, DATE(due) as due from todo where username = '".$_COOKIE['site_username']."' order by due asc;");
+                                            $results = mysql_query("select title, DATE(due) as due  from wishlist where username = '".$_COOKIE['site_username']."' order by due asc;");
                                             while($row = mysql_fetch_array($results)) {
                                             ?>
 
@@ -138,10 +133,6 @@
                             if (readCookie('site_admin') === "0") {
                                 hideDiv("teacher-form")
                             }
-                            if (readCookie('site_admin') === "1") {
-                                hideDiv("student-only")
-                            }
-                            
                         </script>
                     </div>
                 </div>
@@ -150,7 +141,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Notes</div>
                     <div class="panel-body">
-                        This is the todo section, the teacher is able to add items to the todo list while parents can view the todo list but without any edit permissions.
+                        This is the wish list section, the teacher is able to add items to the wish list while parents can view the wish list but without any edit permissions.
                     </div>
                 </div>
             </div>

@@ -31,9 +31,9 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="todo.php">To-Do</a></li>
+                    <li ><a href="todo.php">To-Do</a></li>
                     <li><a href="wishlist.php">Wishlist</a></li>
-                    <li><a href="messageBoard.php">Message Board</a></li>
+                    <li class='active'><a href="messageBoard.php">Message Board</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
@@ -44,46 +44,20 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Todo list</div>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="student-only" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" color="blue">
-                        Select teacher
-                     </button>
-                     </div>
+                    <div class="panel-heading">Message Board</div>
                     <div class="panel-body">
+                        <table>
+                        
                         <div id="teacher-only">
-                            <div  id= "teacher-form"  class="col-md-4">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">Add to Todo</div>
-                                    <div class="panel-body">
-                                        <form action="todo_insert.php" method="post">
-
-                                            <div class="form-group">
-                                                <label for="title">Item</label>
-                                                <input type="title" name="title" placeholder="ex: bring permisison slip" class="form-control" id="title">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="due" class="col-2 col-form-label">Due Date</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="due" type="date" value="2011-08-19" id="example-date-input">
-                                                </div>
-                                            </div>
-
-                                            <input type="submit" class="btn btn-primary" value="Send">
-
-
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
+                            
+                            <tr>
+                                
+                                <div class="col-md-8">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Item</th>
-                                            <th scope="col">Due-date</th>
+                                            <th scope="col">Messaage</th>
+                                            <th scope="col">Date Sent</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -97,13 +71,12 @@
                                 			// select the database
                                 			mysql_select_db($db_name)
                                 			or die ("Could not select database because ".mysql_error());
-                                            $results = mysql_query("select title, DATE(due) as due from todo where username = '".$_COOKIE['site_username']."' order by due asc;");
+                                            $results = mysql_query("select message, DATE(dateSent) as dateSent from messages where username = '".$_COOKIE['site_username']."' order by dateSent asc;");
                                             while($row = mysql_fetch_array($results)) {
                                             ?>
 
                                                     <tr>
                                                         <td><?php echo $row['message']?></td>
-                                                        <td><?php echo $row['sentDate']?></td>
                                                     </tr>
                                             <?php
                                                 }
@@ -111,8 +84,42 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                            
+                            </tr>
+                            <tr>
+                                
+                                <div  id= "teacher-form"  class="col-md-4">
+                                
+                                <div class="panel panel-primary">
+                                    
+                                    <div class="panel-heading">Send Message</div>
+                                    
+                                    <div class="panel-body">
+                                        <form action="messageBoard_insert.php" method="post">
+                                            
+                                            <div class="form-group">
+                                                <label for="todo">Message</label>
+                                                <input type="message" name="message" placeholder="ex: Hello. How are you?" class="form-control" id="message">
+                                            </div>
+                                        
+                                            <div class="form-group">
+                                                <label for="sent">Sent Date</label>
+                                                <div class="col-10">
+                                                    <input class="form-control" name="sentDate" type="sentDate" value="2011-08-19" id="example-date-input">
+                                                </div>
+                                            </div>
 
+                                            <input type="submit" class="btn btn-primary" value="Send">
+                                        </form>
+
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                                
+                            </tr>
+                        </div>
+                        </table>
                         <script>
                             function hideDiv(divname) {
                                 var x = document.getElementById(divname);
@@ -135,13 +142,11 @@
                                 return null;
                             }
                             console.log(readCookie('site_admin'));
+                            /*
                             if (readCookie('site_admin') === "0") {
                                 hideDiv("teacher-form")
                             }
-                            if (readCookie('site_admin') === "1") {
-                                hideDiv("student-only")
-                            }
-                            
+                            */
                         </script>
                     </div>
                 </div>
@@ -150,7 +155,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Notes</div>
                     <div class="panel-body">
-                        This is the todo section, the teacher is able to add items to the todo list while parents can view the todo list but without any edit permissions.
+                        This is the message board section, the teacher and parents are allowed to send messages back and forth between one another.
                     </div>
                 </div>
             </div>
