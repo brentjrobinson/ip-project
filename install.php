@@ -34,11 +34,25 @@ due datetime,
 PRIMARY KEY (id)
 );";
 
+$wishlist = "create table if not exists wishlist (
+id smallint(5) NOT NULL auto_increment,
+username varchar(30) NOT NULL,
+title varchar(30) NOT NULL,
+due datetime,
+PRIMARY KEY (id)
+);";
+
+$messages = "create table if not exists messages (
+id smallint(5) NOT NULL auto_increment,
+message text NOT NULL,
+date text NOT NULL,
+PRIMARY KEY (id)
+);";
 
 
 
 
-$build =  array($create, $todo );
+$build =  array($create, $todo, $wishlist, $messages);
 foreach ($build as &$table) {
     mysql_query($table)
     or die ("Could not create tables because ".mysql_error());

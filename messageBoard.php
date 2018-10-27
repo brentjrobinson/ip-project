@@ -41,113 +41,14 @@
                 </ul>
             </div>
         </nav>
+        
         <div class="row">
             <div class="col-md-9">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Message Board</div>
                     <div class="panel-body">
-                        <table>
                         
-                        <div id="teacher-only">
-                            
-                            <tr>
-                                
-                                <div class="col-md-8">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Messaage</th>
-                                            <th scope="col">Date Sent</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <?php
-                                			include("config.php"); 
-                                            // connect to the mysql server
-                                			$link = mysql_connect($db_host, $db_user, $db_pass)
-                                			or die ("Could not connect to mysql because ".mysql_error());
-                                			
-                                			// select the database
-                                			mysql_select_db($db_name)
-                                			or die ("Could not select database because ".mysql_error());
-                                            $results = mysql_query("select message, DATE(dateSent) as dateSent from messages where username = '".$_COOKIE['site_username']."' order by dateSent asc;");
-                                            while($row = mysql_fetch_array($results)) {
-                                            ?>
-
-                                                    <tr>
-                                                        <td><?php echo $row['message']?></td>
-                                                    </tr>
-                                            <?php
-                                                }
-                                            ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            
-                            </tr>
-                            <tr>
-                                
-                                <div  id= "teacher-form"  class="col-md-4">
-                                
-                                <div class="panel panel-primary">
-                                    
-                                    <div class="panel-heading">Send Message</div>
-                                    
-                                    <div class="panel-body">
-                                        <form action="messageBoard_insert.php" method="post">
-                                            
-                                            <div class="form-group">
-                                                <label for="todo">Message</label>
-                                                <input type="message" name="message" placeholder="ex: Hello. How are you?" class="form-control" id="message">
-                                            </div>
-                                        
-                                            <div class="form-group">
-                                                <label for="sent">Sent Date</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="sentDate" type="sentDate" value="2011-08-19" id="example-date-input">
-                                                </div>
-                                            </div>
-
-                                            <input type="submit" class="btn btn-primary" value="Send">
-                                        </form>
-
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                                
-                            </tr>
-                        </div>
-                        </table>
-                        <script>
-                            function hideDiv(divname) {
-                                var x = document.getElementById(divname);
-                                if (x.style.display === "none") {
-                                    x.style.display = "block";
-                                }
-                                else {
-                                    x.style.display = "none";
-                                }
-                            }
-
-                            function readCookie(name) {
-                                var nameEQ = name + "=";
-                                var ca = document.cookie.split(';');
-                                for (var i = 0; i < ca.length; i++) {
-                                    var c = ca[i];
-                                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-                                }
-                                return null;
-                            }
-                            console.log(readCookie('site_admin'));
-                            /*
-                            if (readCookie('site_admin') === "0") {
-                                hideDiv("teacher-form")
-                            }
-                            */
-                        </script>
+                        <iframe src='MessageTest/MessageBoard.php' height=500 width=100%></iframe>
                     </div>
                 </div>
             </div>
@@ -160,13 +61,15 @@
                 </div>
             </div>
         </div>
+                    
         <!-- Copyright & Credits bar-->
         <div class="panel panel-primary">
-            <div class="panel-heading">Copyright &copy;
-                <a href="#">
-                    <font color="black">Alex,Brent, Tori</font>
-                </a> 2018, All Rights Reserved.</div>
+        <div class="panel-heading">Copyright &copy;
+            <a href="#">
+                <font color="black">Alex,Brent, Tori</font>
+            </a> 2018, All Rights Reserved.</div>
         </div>
+        
     </div>
 </body>
 
