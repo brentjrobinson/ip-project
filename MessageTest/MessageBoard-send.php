@@ -39,8 +39,10 @@
         </head>
         <body>";
 
-    echo "<h2><br>Message sent! ".$sentDate."<br></h2>";
-    echo "</body></html>";
+    echo "<center><div><h2><br>Message sent! ".$sentDate."<br><br></h2>";
+    echo "<a href='http://localhost/ip-project/messageBoard.php' class='btn' target='_parent'>";
+    echo "Back to Messages";
+    echo "</center></div></a></body></html>";
 
     $conn -> close();
 ?>
