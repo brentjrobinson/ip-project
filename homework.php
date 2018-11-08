@@ -32,9 +32,9 @@
                 <ul class="nav navbar-nav">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="todo.php">To-Do</a></li>
-                    <li class="active"><a href="wishlist.php">Wishlist</a></li>
+                    <li><a href="wishlist.php">Wishlist</a></li>
                     <li><a href="messageBoard.php">Message Board</a></li>
-                    <li><a href="homework.php">Homework</a></li>
+                    <li class="active"><a href="homework.php">Homework</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
@@ -45,17 +45,17 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Wish List</div>
+                    <div class="panel-heading">Homework</div>
                     <div class="panel-body">
                         <div id="teacher-only">
                             <div  id= "teacher-form"  class="col-md-4">
                                 <div class="panel panel-primary">
-                                    <div class="panel-heading">Add to Wishlist Item</div>
+                                    <div class="panel-heading">Add Homework Assignment</div>
                                     <div class="panel-body">
-                                        <form action="wishlist_insert.php" method="post">
+                                        <form action="homework_insert.php" method="post">
 
                                             <div class="form-group">
-                                                <label for="title">Item</label>
+                                                <label for="title">Assignment</label>
                                                 <input type="title" name="title" placeholder="ex: bring permisison slip" class="form-control" id="title">
                                             </div>
 
@@ -78,7 +78,7 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Item</th>
+                                            <th scope="col">Assignment</th>
                                             <th scope="col">Due-date</th>
                                         </tr>
                                     </thead>
@@ -142,7 +142,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Notes</div>
                     <div class="panel-body">
-                        This is the wish list section, the teacher is able to add items to the wish list while parents can view the wish list but without any edit permissions.
+                        This is the homework section, the teacher is able to add items to the homework while parents can view the wish list but without any edit permissions.
                     </div>
                 </div>
             </div>

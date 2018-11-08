@@ -27,14 +27,11 @@
 
 <body>
     <div>
-    <?php      
-        $servername = 'localhost';
-        $user = 'root';
-        $pw = '';
-        $db = 'classroom';
+    <?php  
+        include("../config.php"); 
 
-        $conn = new mysqli($servername, $user, $pw, $db) or die("Connection Failed");
-    
+        $conn = new mysqli($db_host, $db_user, $db_pass, $db_name) or die("Connection Failed");
+        
         $query = "SELECT * FROM messages";
     
         if ($result = $conn->query($query))
@@ -43,8 +40,7 @@
             echo "<hr>";
             while ($row = $result->fetch_assoc())
             {
-                // change to cookie value!!
-                if ($count % 2 == 0) 
+                if ($row['admin']) 
                 {
                     echo "<div align='left'><table class='teacher'>";
                     echo "<tr><td><b>TEACHER on ".$row['sentDate'].":</b></td></tr>";
@@ -58,7 +54,7 @@
                     echo "<tr><td>".$row['message']."</td></tr>";
                     echo "</table></div>";
                 }
-                $count++; // change when cookie is updated
+                // change teacher and student to username?
             }
             echo "<hr>";
             $result->free();
@@ -74,8 +70,12 @@
         <br><br><center>
         <button class='btn' type="submit" value="send">send</button>
         </center>
+        
+        
+        
     </form>
     </div>
     <br>
+    
 </body>
 </html>

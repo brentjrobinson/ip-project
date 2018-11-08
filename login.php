@@ -104,7 +104,11 @@ else
     setcookie("loggedin", "TRUE", time()+(3600 * 24));
     setcookie("site_username", "$username");
     setcookie("site_admin", $admin);
+    
+    /*
     echo "You are now logged in!<br>"; 
     echo "Continue to the <a href=members.html>members</a> section.";
+    */
+    header('Location: members.html');
 }
 ?>
