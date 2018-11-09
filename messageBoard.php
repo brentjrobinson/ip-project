@@ -34,6 +34,7 @@
                     <li ><a href="todo.php">To-Do</a></li>
                     <li><a href="wishlist.php">Wishlist</a></li>
                     <li class='active'><a href="messageBoard.php">Message Board</a></li>
+                    <li><a href="homework.php">Homework</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
@@ -71,6 +72,8 @@
         </div>
         
     </div>
+    
+    
 </body>
 
 </html>

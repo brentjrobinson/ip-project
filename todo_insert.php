@@ -18,6 +18,5 @@ $insert = mysql_query("insert into todo values ('NULL',
 '".$_POST['due']."')")
 or die("Could not insert data because ".mysql_error());
 
-echo $_POST['title'];
-
+header('Location: todo.php');
 ?>

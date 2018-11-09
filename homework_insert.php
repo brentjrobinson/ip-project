@@ -12,12 +12,11 @@ mysql_select_db($db_name)
 or die ("Could not select database because ".mysql_error());
 
 // insert the data
-$insert = mysql_query("insert into wishlist values ('NULL',
+$insert = mysql_query("insert into homework values ('NULL',
 '".$_COOKIE['site_username']."',
 '".$_POST['title']."',
 '".$_POST['due']."')")
 or die("Could not insert data because ".mysql_error());
 
-header('Location: wishlist.php');
-
+header('Location: homework.php');
 ?>
