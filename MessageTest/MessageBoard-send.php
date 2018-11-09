@@ -1,18 +1,28 @@
 <?php
-    $servername = 'localhost';
-    $user = 'root';
-    $pw = '';
-    $db = 'classroom';
 
-    $conn = new mysqli($servername, $user, $pw, $db) or die("Connection Failed");
+    include("../config.php"); 
+    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name) or die("Connection Failed");
 
-    $username = '0'; 
-    // will need to change to $_COOKIE['site_username']
     $message = $_GET['msg'];
     $sentDate = date('m/d/Y h:i:s a');
 
-    $sql = "INSERT INTO messages (username, message, sentDate) 
-        VALUES ('$username', '$message', '$sentDate')";
+    $site_admin = $_COOKIE['site_username'];
+    $query = "SELECT admin FROM users WHERE username='$site_admin' limit 1";
+    $find_admin;
+    if ($result = $conn->query($query))
+    {
+        while ($row = $result->fetch_assoc())
+        {
+            if ($row['admin'])
+                $find_admin = 1;
+            else
+                $find_admin = 0;
+        }
+    }
+    
+
+    $sql = "INSERT INTO messages (admin, message, sentDate) 
+        VALUES ('$find_admin', '$message', '$sentDate')";
     
     $conn -> query($sql);
 
@@ -39,7 +49,7 @@
         </head>
         <body>";
 
-    echo "<center><div><h2><br>Message sent! ".$sentDate."<br><br></h2>";
+    echo "<center><div><h2><br>Message sent at ".$sentDate."<br><br></h2>";
     echo "<a href='http://localhost/ip-project/messageBoard.php' class='btn' target='_parent'>";
     echo "Back to Messages";
     echo "</center></div></a></body></html>";

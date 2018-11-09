@@ -34,6 +34,7 @@
                     <li class="active"><a href="todo.php">To-Do</a></li>
                     <li><a href="wishlist.php">Wishlist</a></li>
                     <li><a href="messageBoard.php">Message Board</a></li>
+                    <li><a href="homework.php">Homework</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Register</a></li>
@@ -97,8 +98,8 @@
                                             ?>
 
                                                     <tr>
-                                                        <td><?php echo $row['message']?></td>
-                                                        <td><?php echo $row['sentDate']?></td>
+                                                        <td><?php echo $row['title']?></td>
+                                                        <td><?php echo $row['due']?></td>
                                                     </tr>
                                             <?php
                                                 }
