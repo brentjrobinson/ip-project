@@ -100,10 +100,9 @@
                                             $results = mysql_query("select title, DATE(due) as due from todo where username = '".$_COOKIE['site_username']."' order by due asc;");
                                             while($row = mysql_fetch_array($results)) {
                                             ?>
-
                                                     <tr>
-                                                        <td><?php echo $row['message']?></td>
-                                                        <td><?php echo $row['sentDate']?></td>
+                                                        <td><?php echo $row['title']?></td>
+                                                        <td><?php echo $row['due']?></td>
                                                     </tr>
                                             <?php
                                                 }

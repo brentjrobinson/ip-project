@@ -78,7 +78,8 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Item</th>
-                                            <th scope="col">Due-date</th>
+                                            <th scope="col">Sign-Up</th>
+                                            <!--<th scope="col">Due-date</th>-->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -97,8 +98,8 @@
                                             ?>
 
                                                     <tr>
-                                                        <td><?php echo $row['message']?></td>
-                                                        <td><?php echo $row['sentDate']?></td>
+                                                        <td><?php echo $row['title']?></td>
+                                                        <!--<td><?php echo $row['due']?></td>-->
                                                     </tr>
                                             <?php
                                                 }

@@ -55,6 +55,8 @@ body {
           }
               return null;
           }
+          
+        
           document.getElementById('hello-there').innerHTML = "<h1>Hi there, student " + readCookie('site_username') +"!</h1>";
         </script>
 		 </div>
