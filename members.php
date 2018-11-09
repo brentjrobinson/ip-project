@@ -58,8 +58,49 @@ body {
           }
           
         
-          document.getElementById('hello-there').innerHTML = "<h1>Hi there, student " + readCookie('site_username') +"!</h1>";
+          document.getElementById('hello-there').innerHTML = "<h3>Hi there " + readCookie('site_username') +"!</h1>";
         </script>
+         <?php
+      			include("config.php"); 
+                  // connect to the mysql server
+      			$link = mysql_connect($db_host, $db_user, $db_pass)
+      			or die ("Could not connect to mysql because ".mysql_error());
+      			
+      			// select the database
+      			mysql_select_db($db_name)
+      			or die ("Could not select database because ".mysql_error());
+                  $result = mysql_query("Select count(*) as total from todo where username = '".$_COOKIE['site_username']."' and due > NOW()");
+                  if ($result){
+                        echo '<div class="alert alert-info">';
+                         echo  '<strong><span class="glyphicon glyphicon-ok"></span>  Todo!</strong> you have <strong>"'.mysql_result($result, 0).'"</strong> new todo items.';
+                        echo '</div>';
+                  }
+                  
+                  $result = mysql_query("Select count(*) as total from wishlist where username = '".$_COOKIE['site_username']."' ");
+                  if ($result){
+                        echo '<div class="alert alert-info">';
+                         echo  '<strong><span class="glyphicon glyphicon-star"></span>  Wishlist!</strong> you have <strong>"'.mysql_result($result, 0).'"</strong> total wishlist items.';
+                        echo '</div>';
+                  }
+                  
+                  $result = mysql_query("Select count(*) as total from messages where username = '".$_COOKIE['site_username']."' and date > NOW() ");
+                  if ($result){
+                        echo '<div class="alert alert-info">';
+                         echo  '<strong><span class="glyphicon glyphicon-envelope"></span>  Messages!</strong> you have <strong>"'.mysql_result($result, 0).'"</strong> new messages.';
+                        echo '</div>';
+                  }
+                  
+                  $result = mysql_query("Select count(*) as total from homework where username = '".$_COOKIE['site_username']."' ");
+                  if ($result){
+                        echo '<div class="alert alert-danger">';
+                         echo  '<strong><span class="glyphicon glyphicon-inbox"></span>  Homework!</strong> you have <strong>"'.mysql_result($result, 0).'"</strong> homework assignments.';
+                        echo '</div>';
+                  }
+          
+          ?>
+
+          
+
 		 </div>
       </div>
     </div>

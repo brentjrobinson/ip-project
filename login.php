@@ -109,6 +109,6 @@ else
     echo "You are now logged in!<br>"; 
     echo "Continue to the <a href=members.html>members</a> section.";
     */
-    header('Location: members.html');
+    header('Location: members.php');
 }
 ?>
