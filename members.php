@@ -58,7 +58,7 @@ body {
           }
           
         
-          document.getElementById('hello-there').innerHTML = "<h3>Hi there " + readCookie('site_username') +"!</h1>";
+          document.getElementById('hello-there').innerHTML = "<h1>Hi there " + readCookie('site_username') +"!</h1>";
         </script>
          <?php
       			include("config.php"); 
