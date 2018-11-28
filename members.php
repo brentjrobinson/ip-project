@@ -56,6 +56,10 @@ body {
           }
               return null;
           }
+
+          document.getElementById('hello-there').innerHTML = "<h1>Hi there, student " + readCookie('site_username') +"!</h1>";
+        </script>
+
           
         
           document.getElementById('hello-there').innerHTML = "<h3>Hi there " + readCookie('site_username') +"!</h1>";
@@ -98,9 +102,6 @@ body {
                   }
           
           ?>
-
-          
-
 		 </div>
       </div>
     </div>

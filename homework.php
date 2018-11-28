@@ -93,7 +93,7 @@
                                 			// select the database
                                 			mysql_select_db($db_name)
                                 			or die ("Could not select database because ".mysql_error());
-                                            $results = mysql_query("select title, DATE(due) as due from homework where username = '".$_COOKIE['site_username']."' order by due asc;");
+                                      $results = mysql_query("select title, DATE(due) as due  from homework where username = '".$_COOKIE['site_username']."' order by due asc;");
                                             while($row = mysql_fetch_array($results)) {
                                             ?>
 
