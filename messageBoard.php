@@ -30,7 +30,7 @@
                     <a class="navbar-brand" href="#">TeacherConnect</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="members.php">Home</a></li>
                     <li ><a href="todo.php">To-Do</a></li>
                     <li><a href="wishlist.php">Wishlist</a></li>
                     <li class='active'><a href="messageBoard.php">Message Board</a></li>

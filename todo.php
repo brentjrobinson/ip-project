@@ -30,7 +30,7 @@
                     <a class="navbar-brand" href="#">TeacherConnect</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="members.php">Home</a></li>
                     <li class="active"><a href="todo.php">To-Do</a></li>
                     <li><a href="wishlist.php">Wishlist</a></li>
                     <li><a href="messageBoard.php">Message Board</a></li>
@@ -47,9 +47,11 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Todo list</div>
                     <div class="dropdown">
+                <!--
                       <button class="btn btn-secondary dropdown-toggle" type="button" id="student-only" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" color="blue">
                         Select teacher
                      </button>
+                -->
                      </div>
                     <div class="panel-body">
                         <div id="teacher-only">
@@ -98,7 +100,10 @@
                                 			// select the database
                                 			mysql_select_db($db_name)
                                 			or die ("Could not select database because ".mysql_error());
-                                            $results = mysql_query("select title, DATE(due) as due from todo where username = '".$_COOKIE['site_username']."' order by due asc;");
+                                        
+                                            $results = mysql_query("select title, DATE(due) as due from todo order by due asc;");
+                                            // $results = mysql_query("select title, DATE(due) as due from todo where username = '".$_COOKIE['site_username']."' order by due asc;");
+                
                                             while($row = mysql_fetch_array($results)) {
                                             ?>
                                                     <tr>

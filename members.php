@@ -69,28 +69,32 @@ body {
       			// select the database
       			mysql_select_db($db_name)
       			or die ("Could not select database because ".mysql_error());
-                  $result = mysql_query("Select count(*) as total from todo where username = '".$_COOKIE['site_username']."' and due > NOW()");
+                  $result = mysql_query("Select count(*) as total from todo where due > NOW()");
+             // $result = mysql_query("Select count(*) as total from todo where username = '".$_COOKIE['site_username']."' and due > NOW()");
                   if ($result){
                         echo '<div class="alert alert-info">';
                          echo  '<strong><span class="glyphicon glyphicon-ok"></span>  Todo!</strong> you have <strong>"'.mysql_result($result, 0).'"</strong> new todo items.';
                         echo '</div>';
                   }
                   
-                  $result = mysql_query("Select count(*) as total from wishlist where username = '".$_COOKIE['site_username']."' ");
+                  $result = mysql_query("Select count(*) as total from wishlist");
+            // $result = mysql_query("Select count(*) as total from wishlist where username = '".$_COOKIE['site_username']."' ");
                   if ($result){
                         echo '<div class="alert alert-info">';
                          echo  '<strong><span class="glyphicon glyphicon-star"></span>  Wishlist!</strong> you have <strong>"'.mysql_result($result, 0).'"</strong> total wishlist items.';
                         echo '</div>';
                   }
                   
-                  $result = mysql_query("Select count(*) as total from messages where username = '".$_COOKIE['site_username']."' and date > NOW() ");
+                  $result = mysql_query("Select count(*) as total from messages");
+             // $result = mysql_query("Select count(*) as total from messages where username = '".$_COOKIE['site_username']."' and date > NOW() ");
                   if ($result){
                         echo '<div class="alert alert-info">';
-                         echo  '<strong><span class="glyphicon glyphicon-envelope"></span>  Messages!</strong> you have <strong>"'.mysql_result($result, 0).'"</strong> new messages.';
+                         echo  '<strong><span class="glyphicon glyphicon-envelope"></span>  Messages!</strong> you have <strong>"'.mysql_result($result, 0).'"</strong> messages.';
                         echo '</div>';
                   }
                   
-                  $result = mysql_query("Select count(*) as total from homework where username = '".$_COOKIE['site_username']."' ");
+                  $result = mysql_query("Select count(*) as total from homework");
+             // $result = mysql_query("Select count(*) as total from homework where username = '".$_COOKIE['site_username']."' ");
                   if ($result){
                         echo '<div class="alert alert-danger">';
                          echo  '<strong><span class="glyphicon glyphicon-inbox"></span>  Homework!</strong> you have <strong>"'.mysql_result($result, 0).'"</strong> homework assignments.';
@@ -108,7 +112,7 @@ body {
 	  <div class="panel panel-primary"> 
 	    <div class="panel-heading">Notes</div>
 	    <div class="panel-body">
-      We just have to mess with the cookies on login to determine if they are admin or not! - Brent
+      Welcome to the homepage of Teacher Connect! Please browser the tabs to stay up-to-date on the to-do list, wishlist, and/or homework items. You may even chat in real-time with the teachers and parents!
 	    </div>
       </div>
 	</div>

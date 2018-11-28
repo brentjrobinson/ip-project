@@ -30,7 +30,7 @@
                     <a class="navbar-brand" href="#">TeacherConnect</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="members.php">Home</a></li>
                     <li><a href="todo.php">To-Do</a></li>
                     <li><a href="wishlist.php">Wishlist</a></li>
                     <li><a href="messageBoard.php">Message Board</a></li>
@@ -93,7 +93,10 @@
                                 			// select the database
                                 			mysql_select_db($db_name)
                                 			or die ("Could not select database because ".mysql_error());
-                                            $results = mysql_query("select title, DATE(due) as due from homework where username = '".$_COOKIE['site_username']."' order by due asc;");
+                                        
+                                            $results = mysql_query("select title, DATE(due) as due from homework order by due asc;");
+                                            // $results = mysql_query("select title, DATE(due) as due from homework where username = '".$_COOKIE['site_username']."' order by due asc;");
+                                        
                                             while($row = mysql_fetch_array($results)) {
                                             ?>
 

@@ -25,34 +25,8 @@
         VALUES ('$find_admin', '$message', '$sentDate')";
     
     $conn -> query($sql);
-
-
-    echo "<!DOCTYPE html><html lang='en'><meta charset='UTF-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' href='MessageStyle.css'>
-        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-        <head>
-            <style>
-            body, button
-            {
-                font-family: 'Montserrat', sans-serif
-            }
-        
-            div 
-            {
-                background-color: inherit;
-                margin: 0;
-                padding: 20px;
-                width: 100%;
-            }
-        </style>
-        </head>
-        <body>";
-
-    echo "<center><div><h2><br>Message sent at ".$sentDate."<br><br></h2>";
-    echo "<a href='http://localhost/ip-project/messageBoard.php' class='btn' target='_parent'>";
-    echo "Back to Messages";
-    echo "</center></div></a></body></html>";
+    
+    header('Location: MessageBoard.php');
 
     $conn -> close();
 ?>

@@ -105,10 +105,6 @@ else
     setcookie("site_username", "$username");
     setcookie("site_admin", $admin);
     
-    /*
-    echo "You are now logged in!<br>"; 
-    echo "Continue to the <a href=members.html>members</a> section.";
-    */
     header('Location: members.php');
 }
 ?>
