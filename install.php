@@ -45,8 +45,7 @@ PRIMARY KEY (id)
 $messages = "create table if not exists messages (
 admin boolean,
 message text NOT NULL,
-date text NOT NULL,
-PRIMARY KEY (id)
+date text NOT NULL
 );";
 
 $homework = "create table if not exists homework (

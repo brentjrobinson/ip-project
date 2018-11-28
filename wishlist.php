@@ -60,10 +60,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="due" class="col-2 col-form-label">Due Date</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="due" type="date" value="2011-08-19" id="example-date-input">
-                                                </div>
+
                                             </div>
 
                                             <input type="submit" class="btn btn-primary" value="Send">
@@ -79,7 +76,8 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Item</th>
-                                            <th scope="col">Due-date</th>
+                                            <th scope="col">Sign-Up</th>
+                                            <!--<th scope="col">Due-date</th>-->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -99,7 +97,8 @@
 
                                                     <tr>
                                                         <td><?php echo $row['title']?></td>
-                                                        <td><?php echo $row['due']?></td>
+                                                        <!--<td><?php echo $row['due']?></td>-->
+
                                                     </tr>
                                             <?php
                                                 }
